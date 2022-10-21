@@ -5,7 +5,10 @@
         print_r("Olá $email, como vc está?<br>");
         print_r("Conectando...");
         if ($conn = pg_connect(getenv("DATABASE_URL"))) {
-            print_r("Conetado...");
+            $result_db = pg_query($conn, "SELECT * FROM public.mensagens WHERE email = $email");
+            foreach ($result_db as $key => $value) {
+                print_r($value);
+            }
         } 
     }
     print_r("deu bom");
