@@ -1,7 +1,18 @@
 <?php 
 
     if (isset($_POST)) {
-        print_r($_POST['email']);
+        if (isset($_POST['email']) && isset($_POST['message']) && isset($_POST['name'])) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $message = $_POST['message'];
+            if ($result_db = pg_query($conn, "INSERT INTO public.mensagens (id, name, email, message) VALUES (2, $name, $email, $message)")) {
+                return '{
+                    "message": "Adicionado!"
+                }';
+            } else {
+                pg_result_error($result_db);
+            }
+        }
     }
     if (isset($_GET['op'])) {
         switch ($_GET['op']) {
