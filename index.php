@@ -5,13 +5,15 @@
             $name = $_POST['name'];
             $email = $_POST['email'];
             $message = $_POST['message'];
-            if ($result_db = pg_query($conn, "INSERT INTO public.mensagens (id, name, email, message) VALUES (2, $name, $email, $message)")) {
-                return '{
-                    "message": "Adicionado!"
-                }';
-            } else {
-                print_r("deu ruim");
-            }
+            if ($conn = pg_connect(getenv("DATABASE_URL"))) {
+                if ($result_db = pg_insert($conn, "INSERT INTO public.mensagens (id, name, email, message) VALUES (2, $name, $email, $message)")) {
+                    return '{
+                        "message": "Adicionado!"
+                    }';
+                } else {
+                    pg_result_error($result_db);
+                }
+            } 
         }
     }
     if (isset($_GET['op'])) {
