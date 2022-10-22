@@ -1,5 +1,8 @@
 <?php 
 
+    if (isset($_POST['valores'])) {
+        print_r($_POST['valores']);
+    }
     if (isset($_GET['op'])) {
         switch ($_GET['op']) {
             case 'ins':
@@ -17,7 +20,6 @@
         print_r("Olá $email, como vc está?<br>");
         print_r("Conectando...<br>");
         if ($conn = pg_connect(getenv("DATABASE_URL"))) {
-            print_r("deu bommm");
             if ($result_db = pg_query($conn, "SELECT * FROM public.mensagens WHERE email LIKE '%$email%'")) {
                 while($row = pg_fetch_row($result_db)) {
                     print_r($row);
