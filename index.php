@@ -10,7 +10,7 @@
                     "message": "Adicionado!"
                 }';
             } else {
-                pg_result_error($result_db);
+                print_r("deu ruim");
             }
         }
     }
