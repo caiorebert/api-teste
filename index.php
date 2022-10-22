@@ -1,7 +1,7 @@
 <?php 
 
     if (isset($_POST)) {
-        print_r($_POST);
+        print_r($_POST['email']);
     }
     if (isset($_GET['op'])) {
         switch ($_GET['op']) {
