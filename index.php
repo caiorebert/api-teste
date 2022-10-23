@@ -8,12 +8,14 @@
             ];
             if ($conn = pg_connect(getenv("DATABASE_URL"))) {
                 if ($result_db = pg_insert($conn, 'mensagens', $array)) {
-                    return '{
-                        "message": "Adicionado!"
-                    }';
-                } else {
-                    pg_result_error($result_db);
+//                     return '{
+//                         "message": "Adicionado!"
+//                     }';
+                    print_r("deu bom");
                 }
+//                 else {
+//                     pg_result_error($result_db);
+//                 }
             } 
         }
     }
