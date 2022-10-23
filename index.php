@@ -5,6 +5,7 @@
             $email = $_POST['email'];
             $message = $_POST['message'];
             if ($conn = pg_connect(getenv("DATABASE_URL"))) {
+                print_r("conectouuu!<br>");
 //                 if ($result_db = pg_insert($conn, "INSERT INTO public.mensagens (id, name, email, message) VALUES (2, $name, $email, $message)")) {
 //                     return '{
 //                         "message": "Adicionado!"
