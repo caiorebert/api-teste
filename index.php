@@ -12,7 +12,7 @@
                 } else {
                     pg_result_error($result_db);
                 }
-            } 
+            }
         }
     }
     if (isset($_GET['op'])) {
