@@ -1,5 +1,4 @@
 <?php 
-
     if (isset($_POST)) {
         if (isset($_POST['email']) && isset($_POST['message']) && isset($_POST['name'])) {
             $name = $_POST['name'];
